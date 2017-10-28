@@ -1,0 +1,29 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Автоответчик Мурзик</title>
+  <meta name="description" content="Автоответчик Мурзик">
+  <meta name="author" content="Murzik">
+
+  <style>
+  	.cat {
+  		position: absolute;
+  		bottom: 25px;
+  		right: 25px;
+  		width: 250px;
+  		transform: scaleX(-1);
+  	}
+  	.cat:hover {
+  		cursor: pointer;
+  	}
+  </style>
+</head>
+
+<body>
+  <img class="cat" src="cat.png" onclick="alert(getSound())">		
+  <script src="scripts.js"></script>
+</body>
+</html>
