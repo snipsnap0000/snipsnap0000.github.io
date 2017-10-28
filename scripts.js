@@ -1,3 +1,11 @@
+function alertPurr(text) {
+	window.alert('asd')
+	document.getElementById('fadeout').style.opacity = '1';
+	document.getElementById('fadeout').innerHTML = text;
+
+	window.setTimeout(function(document.getElementById('fadeout').style.opacity = '0';) {}, 5000); //8 seconds
+}
+
 function getSound() {
 	var s = randn_bm() * 4.5;
 
@@ -72,7 +80,8 @@ function randn_bm() {
 document.addEventListener(
 	"keyup",
 	function onKeyUp(e) {
-	  if (e.keyCode === 13) alert(getSound());
+	  if (e.keyCode === 13) alertPurr(getSound());
 	},
 	false
 );
+
