@@ -1,7 +1,7 @@
-### Murzik
+# Murzik
 
-# Todos:
-1. dayime
+## Todos:
+1. daytime
 2. mood
-3. feeding
+3. select actions from list (feeding, rubbing etc.)
 4. optional audio playback
