@@ -15,99 +15,99 @@
 
 <body style="margin: 0;" onload="init();" onclick="handleClick();">
   <script>
-  	var canvas;
-  	var stage;
-  	var starHoleCounter = 0;
-  	var stars = true;
+    var canvas;
+    var stage;
+    var starHoleCounter = 0;
+    var stars = true;
 
-  	function init() {
-	  canvas = document.getElementsByTagName('canvas')[0];
-	  setDarkBackground();
+    function init() {
+      canvas = document.getElementsByTagName('canvas')[0];
+      setDarkBackground();
       stage = new createjs.Stage("demoCanvas");
-  	}
+    }
 
-  	function handleClick() {
-  	  updateStarHoleCounter();
-  	  if (stars) {
-    	var number = Math.floor(50 + 50 * starHoleCounter * Math.random());
-  	  	addStars(number)
-  	  } else {
-  	  	var number = Math.floor(5 + 30 * Math.random());
-  	  	addBlackHoles(number);
-  	  }
-  	}
+    function handleClick() {
+      updateStarHoleCounter();
+      if (stars) {
+      var number = Math.floor(50 + 50 * starHoleCounter * Math.random());
+        addStars(number)
+      } else {
+        var number = Math.floor(5 + 30 * Math.random());
+        addBlackHoles(number);
+      }
+    }
 
-  	function updateStarHoleCounter() {
-  	  var stepNumber = stars ? 12 : 7;	
-  	  starHoleCounter = (starHoleCounter + 1) % stepNumber;
+    function updateStarHoleCounter() {
+      var stepNumber = stars ? 12 : 7;  
+      starHoleCounter = (starHoleCounter + 1) % stepNumber;
 
-  	  if (starHoleCounter === stepNumber - 2 && !stars) {
-  	  	setBackground();
-  	  }
+      if (starHoleCounter === stepNumber - 2 && !stars) {
+        setBackground();
+      }
 
-  	  if (starHoleCounter === 0) {
-  	  	updateMode();
-  	  }
-  	}
+      if (starHoleCounter === 0) {
+        updateMode();
+      }
+    }
 
-  	function clearStage() {
-  	  init()
-  	}
+    function clearStage() {
+      init()
+    }
 
-  	function setBackground() {
+    function setBackground() {
       stars ? setLightBackground() : setDarkBackground();
-  	}
+    }
 
-  	function updateMode() {
-  	  if (!stars) {
-  	  	clearStage();
-  	  }	
-	  stars = !stars;
-  	}
+    function updateMode() {
+      if (!stars) {
+        clearStage();
+      } 
+    stars = !stars;
+    }
 
-  	function addStars(numberOfStars) {
-  	  for (var i = 0; i < numberOfStars; i++) {
-  	  	star = new createjs.Shape();
-  	  	star.graphics.beginFill('#ffffff')
-  	  	  .drawPolyStar(
-  	  	  	1000 * Math.random(),
-  	  	  	500 * Math.random(),
-  	  	  	5 + 20*Math.random(),
-  	  	  	5,
-  	  	  	0.6,
-  	  	  	360 * Math.random()
-  	  	  );
-  	    star.shadow = new createjs.Shadow("#ffee00", 0, 0, 20);
-  	  	stage.addChild(star);
-  	  }
+    function addStars(numberOfStars) {
+      for (var i = 0; i < numberOfStars; i++) {
+        star = new createjs.Shape();
+        star.graphics.beginFill('#ffffff')
+          .drawPolyStar(
+            1000 * Math.random(),
+            500 * Math.random(),
+            5 + 20*Math.random(),
+            5,
+            0.6,
+            360 * Math.random()
+          );
+        star.shadow = new createjs.Shadow("#ffee00", 0, 0, 20);
+        stage.addChild(star);
+      }
 
-  	  stage.update();
-  	}
+      stage.update();
+    }
 
-  	function addBlackHoles(numberOfHoles) {
-  	  for (var i = 0; i < numberOfHoles; i++) {
-  	  	hole = new createjs.Shape();
-  	  	hole.graphics.beginFill('#000000')
-  	  	  .drawCircle(
-  	  	  	1000 * Math.random(),
-  	  	  	500 * Math.random(),
-  	  	  	30 + 100 * Math.random() + 10 * Math.random() * starHoleCounter
-  	  	  );
-  	    hole.shadow = new createjs.Shadow("#101010", 0, 0, 20);
-  	  	stage.addChild(hole);
-  	  }
+    function addBlackHoles(numberOfHoles) {
+      for (var i = 0; i < numberOfHoles; i++) {
+        hole = new createjs.Shape();
+        hole.graphics.beginFill('#000000')
+          .drawCircle(
+            1000 * Math.random(),
+            500 * Math.random(),
+            30 + 100 * Math.random() + 10 * Math.random() * starHoleCounter
+          );
+        hole.shadow = new createjs.Shadow("#101010", 0, 0, 20);
+        stage.addChild(hole);
+      }
 
-  	  stage.update();
+      stage.update();
 
-  	}
+    }
 
-  	function setDarkBackground() {
-  	  canvas.style.backgroundColor = "#101010";
-  	}
+    function setDarkBackground() {
+      canvas.style.backgroundColor = "#101010";
+    }
 
-  	function setLightBackground() {
-  	  canvas.style.backgroundColor = "#efefef";
-  	}
+    function setLightBackground() {
+      canvas.style.backgroundColor = "#efefef";
+    }
   </script>
   <canvas width="1000" height="500" id="demoCanvas" />
 </body>
